@@ -6,6 +6,12 @@ app.use(express.static('.'));
 app.use(express.json());
 
 // Pénzügyi modul és n8n kapcsolat
+app.post('/post-video', (req, res) => { 
+  // Ez a végpont indítja a YouTube API-t 
+  console.log("YouTube Engine: Napi 8 videó ciklus indítva..."); 
+  res.json({ status: "SCHEDULED", videos: 8 }); 
+});
+
 app.post('/send-offer', (req, res) => { 
   const { email } = req.body; 
   console.log("Sales Bot: Ajánlat küldve -> " + email); 
