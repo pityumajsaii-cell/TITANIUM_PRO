@@ -1,1 +1,1 @@
-{"type":"module","name":"titanium-pro","dependencies":{"dotenv":"^17.4.2","express":"^5.2.1"}}
+{"type":"module","name":"titanium-pro","dependencies":{"cors":"^2.8.6","dotenv":"^17.4.2","express":"^5.2.1"}}
