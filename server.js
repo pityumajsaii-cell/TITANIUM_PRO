@@ -6,6 +6,12 @@ app.use(express.static('.'));
 app.use(express.json());
 
 // Pénzügyi modul és n8n kapcsolat
+app.post('/global-hunt', (req, res) => { 
+  const { country, company } = req.body; 
+  console.log("Global Hunter: Célozva -> " + company + " (" + country + ")"); 
+  res.json({ status: "HUNTING", region: country }); 
+});
+
 app.post('/post-video', (req, res) => { 
   // Ez a végpont indítja a YouTube API-t 
   console.log("YouTube Engine: Napi 8 videó ciklus indítva..."); 
