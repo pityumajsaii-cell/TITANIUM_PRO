@@ -6,6 +6,13 @@ app.use(express.static('.'));
 app.use(express.json());
 
 // Pénzügyi modul és n8n kapcsolat
+app.get('/services', (req, res) => { 
+  res.json({ 
+    products: ["LeadGen", "Content-Factory", "Automation-Stack"], 
+    status: "AVAILABLE_FOR_RENT" 
+  }); 
+});
+
 app.post('/global-hunt', (req, res) => { 
   const { country, company } = req.body; 
   console.log("Global Hunter: Célozva -> " + company + " (" + country + ")"); 
