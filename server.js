@@ -6,6 +6,12 @@ app.use(express.static('.'));
 app.use(express.json());
 
 // Pénzügyi modul és n8n kapcsolat
+app.post('/send-offer', (req, res) => { 
+  const { email } = req.body; 
+  console.log("Sales Bot: Ajánlat küldve -> " + email); 
+  res.json({ status: "SENT", log: "Titanium_Offer_Activated" }); 
+});
+
 app.post('/checkout', async (req, res) => {
   const n8nUrl = process.env.N8N_WEBHOOK_URL || "https://titaniumtolna.app.n8n.cloud/webhook/titanium";
   console.log("Küldés az n8n-nek:", n8nUrl);
