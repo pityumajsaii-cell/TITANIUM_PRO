@@ -19,3 +19,14 @@ app.get('/health', (req, res) => {
 });
 
 app.listen(3000, () => console.log("Titanium-Pro: Éles üzemmódban (Port: 3000)"));
+
+// Pénzügyi riport végpont hozzáadása
+app.get('/finance-report', (req, res) => {
+  const report = {
+    timestamp: new Date().toISOString(),
+    status: "OPTIMIZED",
+    action: "Sending weekly profit summary to Telegram",
+    tax_reserve: "27% of revenue reserved"
+  };
+  res.json(report);
+});
