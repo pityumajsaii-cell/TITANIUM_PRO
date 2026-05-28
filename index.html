@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>TITANIUM EMPIRE | CONTROL CENTER</title>
+    <style>
+        body { background: #050505; color: #00ff41; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { border: 1px solid #333; padding: 2rem; border-radius: 10px; width: 300px; text-align: center; background: #111; }
+        button { background: #00ff41; border: none; padding: 10px; width: 100%; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>TITANIUM</h1>
+        <div id="status">INITIALIZING...</div>
+        <button onclick="checkout()">INITIATE PAYMENT</button>
+    </div>
+    <script>
+        fetch('https://titanium-pro.onrender.com/health')
+            .then(r => r.json())
+            .then(d => document.getElementById('status').innerText = 'SYSTEM: ' + d.status.toUpperCase());
+        async function checkout() {
+            const res = await fetch('https://titanium-pro.onrender.com/checkout', {method: 'POST'});
+            const data = await res.json();
+            window.location.href = data.url;
+        }
+    </script>
+</body>
+</html>
