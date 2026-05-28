@@ -18,7 +18,7 @@ app.get('/health', (req, res) => {
 
 // Checkout végpont
 app.post('/checkout', (req, res) => {
-    res.json({ url: "https://buy.stripe.com/test_14k6oW4eZ0Y33Gv9IQ03" });
+    res.json({ url: "https://buy.stripe.com/28EeVfeqwfKA0Y33Gv9IQ03" });
 });
 
 // Biztonsági logolás - minden bejövő kérést figyelünk
