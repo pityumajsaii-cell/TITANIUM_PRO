@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: titanium-empire
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
